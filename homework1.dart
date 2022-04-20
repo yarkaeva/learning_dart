@@ -40,35 +40,21 @@
 
 void main() {
 //задача 1
-  counterProgramm();
+  counterFunction();
 //задача 2
-  numbersCount(24);
+  print(numbersCount(24));
 //задача 3
-  calculateCentury(1601);
+  print(calculateCentury(1601));
 }
 
-//TODO: Для удобства на будущее текст задачи пиши прямо над самой функцией задачи
-
-// TODO: У всех функций обязательно указывай возвращемое значение!
-
-// TODO: подумай ещё над названием. Это не программа, а функция)
-
-//TODO: Исправь цикл. Он не дойдет до 100, потому что он перед проходом проверяет условие
-//TODO: i < 100. Используй i <= 100
-counterProgramm() {
-  for (int i = 1; i < 100; i++) {
+void counterFunction() {
+  for (int i = 1; i <= 100; i++) {
     if (i % 3 == 0 && i % 5 == 0) {
       print('Super Quiz');
-      //TODO: Зачем continue?
-      continue;
     } else if (i % 3 == 0) {
       print('Super');
-      //TODO: Зачем continue?
-      continue;
     } else if (i % 5 == 0) {
-      print('Quiz');
-      //TODO: Зачем continue?
-      continue;
+      print('Quiz'); 
     }
     print(i);
   }
@@ -80,19 +66,12 @@ numbersCount(int number) {
     number ~/= 10;
     counter++;
   } while (number >= 1);
-  //TODO: функции не нужно знать, как себя печатать в консоль, если это
-  //TODO:не обозначено в задании. Старайся возвращать результат (здесь это int)
-  //TODO:и в main уже его печатать.
-  print(counter);
+  return counter;
 }
 
-//TODO: Старайся без крайней необходимости не возвращать dynamic (а лучше никогда)
 
-//TODO: какое-то сложное решение, я ничего не понял, запиши голосовое с объяснением
-dynamic calculateCentury(int year) {
-  var x = year / 100;
-  var y = year ~/ 100;
-  var century = x > y ? (y + 1) : (x);
-  // Опять же print в функциях не очень хороший тон
-  print('Это $century век');
+ calculateCentury(int year) {
+  var century = year ~/100;
+  if (year % 100 != 0) century +=1;
+  return century;
 }
