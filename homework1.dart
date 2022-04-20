@@ -4,24 +4,6 @@
 Если число кратно и 3, и 5, то программа должна выводить слово «Super Quiz»
  */
 
-void main (){
-  int counter = 0;
-do {
-  counter ++;
-  if (counter % 3 == 0 && counter % 5 == 0 ){
-    print('Super Quiz');
-    continue;
-  } else if (counter % 3 == 0 ){
-    print('Super');
-    continue;
-  }else if (counter % 5 == 0 ){
-    print('Quiz');
-    continue;
-  }
-  print(counter);
-
-} while (counter <101);
-}
 
 /*Задача 2
 
@@ -37,17 +19,6 @@ do {
 1
 3
 6 */
-
-void main (){
- var a = 236455;
-  if (a >-10 && a <10){
-    print(1);
-  }else if (a >= 100 && a < 999){
-    print(3);
-  } else if(a >= 100000 && a < 999999){
-    print(6);
-  }
-}
 /*Задача 3
 
 Вам будет дан год, верните тот век, в котором он находится. 
@@ -68,23 +39,44 @@ void main (){
 17
 20*/
 
-void main (){
-int year = 2000;
-  if (year >= 1601 && year<=1700){
-    print ('Это 17 век, детка');
-  } else if (year>= 1701 && year<=1800){
-    print('А это 18 век');
-  } else if (year>= 1801 && year<=1900){
-    print('Хм, уже 19 век');
-  } else if (year>= 1901 && year<=2000){
-    print(' 20 век');
-  }
-
+void main() {
+//задача 1
+counterProgramm();
+//задача 2
+numbersCount(24);
+//задача 3
+calculateCentury(1601);
 }
 
-//Альтернативное решение
-void main (){
-  var year=1901;
+
+
+ counterProgramm(){
+  for(int i=1; i<100; i++) {
+  if (i % 3 == 0 && i % 5 == 0 ){
+    print('Super Quiz');
+    continue;
+  } else if (i % 3 == 0 ){
+    print('Super');
+    continue;
+  }else if (i % 5 == 0 ){
+    print('Quiz');
+    continue;
+  }
+  print(i);
+}
+}
+
+
+numbersCount (int number){
+ int counter = 0;
+do {
+  number ~/= 10;
+  counter++;
+}while (number>=1);
+  print(counter);
+}
+
+dynamic calculateCentury(int year) {
   var x= year/100;
   var y= year~/100;
   var century = x>y ?(y+1):(x);
