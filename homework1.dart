@@ -54,7 +54,7 @@ void counterFunction() {
     } else if (i % 3 == 0) {
       print('Super');
     } else if (i % 5 == 0) {
-      print('Quiz'); 
+      print('Quiz');
     }
     print(i);
   }
@@ -69,9 +69,8 @@ numbersCount(int number) {
   return counter;
 }
 
-
- calculateCentury(int year) {
-  var century = year ~/100;
-  if (year % 100 != 0) century +=1;
+calculateCentury(int year) {
+  var century = year ~/ 100;
+  if (year % 100 != 0) century += 1;
   return century;
 }
