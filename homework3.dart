@@ -10,7 +10,11 @@
 // Вы должны получить список со значениями – [43, 12, 264]
 
 void main() {
-  final words = ['dart', 'abc', 'good luck'];
+  final words = [
+    'dart',
+    'abc',
+    'good luck',
+  ];
 
   print(
     wordValue(words),
