@@ -54,12 +54,15 @@ List<int> wordValue(List<String> words) {
 
   for (var i = 0; i < words.length; i++) {
     var value = 0;
+
     var chars = words[i].split('');
 
     for (var char in chars) {
       value += alphabet.indexOf(char) + 1;
     }
+
     value *= i + 1;
+
     result.add(value);
   }
   return result;
