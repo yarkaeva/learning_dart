@@ -16,14 +16,29 @@
 // [1, 2] => 3
 
 void main() {
-  List<int> numbers = [1, 2];
+  List<int> numbers = [1, -10, 9, -1];
+
   var result = 0;
 
+// Вариант решения 1 (без использования функции);
   for (var number in numbers) {
-    
     if (number > 0) result += number;
-
   }
-  
-  print(result);
+
+  print('Решение 1: $result');
+
+//вариант решения 2 (с использованием анонимной функции);
+
+  var result2 = 0;
+
+  for (var number1 in numbers) {
+    if (number1 > 0) {
+      result2 = getResult(result2, number1, (a, b) => a = a + b);
+    }
+  }
+  print('Решение 2: $result2');
+}
+
+int getResult(int a, int b, Function operation) {
+  return operation(a, b);
 }
