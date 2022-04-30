@@ -13,20 +13,31 @@
 // [] => 0
 
 void main() {
-  List<String> strings = ['abcde', 'ab', 'abc']; 
+  List<String> strings = ['a', 'ab', 'abc'];
 
+  //Решение 1
   print(toNumbers(strings));
+
+  //Решение 2
+
+  var result2 = 0;
+  for (var i = 0; i < strings.length; i++) {
+    result2 = getResult(result2, strings[i].length, (a, b) => (a = a + b));
+  }
+
+  print('Решение 2: $result2');
 }
 
 toNumbers(List<String> strings) {
   var result = 0;
-  
+
   for (var i = 0; i < strings.length; i++) {
-    
-    var string = strings[i].split('');
-    
-    result += string.length;
+    result += strings[i].length;
   }
 
   return result;
+}
+
+int getResult(int a, int b, Function operation) {
+  return operation(a, b);
 }
