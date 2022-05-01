@@ -21,6 +21,10 @@ void main() {
   //Решение 2
 
   var result2 = 0;
+  // TODO: здесь лучше использовать for in, он вроде лучше с массивами работает
+
+  // TODO: интересное решение, но почему оно в main? Или это условие такое?
+  // TODO: Если нет, то вынеси в getResult() оставшуюся логику.
   for (var i = 0; i < strings.length; i++) {
     result2 = getResult(result2, strings[i].length, (a, b) => (a = a + b));
   }
@@ -28,9 +32,14 @@ void main() {
   print('Решение 2: $result2');
 }
 
+// TODO: где возвращаемое значение? Не забывай.
 toNumbers(List<String> strings) {
   var result = 0;
 
+  // TODO: если массив пустой, то лучше сразу добавить возвращение нуля, чтобы
+  // TODO: цикл не инициализировался.
+
+  // TODO: здесь лучше использовать for in, он вроде лучше с массивами работает
   for (var i = 0; i < strings.length; i++) {
     result += strings[i].length;
   }
