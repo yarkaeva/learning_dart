@@ -18,17 +18,8 @@
 void main() {
   List<int> numbers = [1, -10, 9, -1];
 
-  var result = 0;
-
-  // TODO: Все отлично, но выноси логику из main в отдельную функцию с возвращаемым
-  // TODO: значением (и без print, его вызывай в main, функции не надо знать, как себя печатать в консоль)
-
-// Вариант решения 1 (без использования функции);
-  for (var number in numbers) {
-    if (number > 0) result += number;
-  }
-
-  print('Решение 1: $result');
+  // Вариант решения 1 (без использования функции);
+  print(getNumber(numbers));
 
   // TODO: Тут все нормально, но цикл вынеси в getResult(). В main ты должна
   // TODO: просто вызывать функцию и передавать туда значения (в данном случае ещё и анонимную функцию)
@@ -47,4 +38,14 @@ void main() {
 
 int getResult(int a, int b, Function operation) {
   return operation(a, b);
+}
+
+int getNumber(List<int> numbers) {
+  var result = 0;
+
+  for (var number in numbers) {
+    if (number > 0) result += number;
+  }
+
+  return result;
 }

@@ -21,30 +21,27 @@ void main() {
   //Решение 2
 
   var result2 = 0;
-  // TODO: здесь лучше использовать for in, он вроде лучше с массивами работает
 
   // TODO: интересное решение, но почему оно в main? Или это условие такое?
   // TODO: Если нет, то вынеси в getResult() оставшуюся логику.
-  for (var i = 0; i < strings.length; i++) {
-    result2 = getResult(result2, strings[i].length, (a, b) => (a = a + b));
+  for (var string in strings) { //исправила на for in
+    result2 = getResult(result2, string.length, (a, b) => (a = a + b));
   }
 
   print('Решение 2: $result2');
 }
 
 // TODO: где возвращаемое значение? Не забывай.
-toNumbers(List<String> strings) {
+int toNumbers(List<String> strings) {
+  if (strings.isEmpty) return 0; // добавила возвращение нуля
+
   var result = 0;
 
-  // TODO: если массив пустой, то лучше сразу добавить возвращение нуля, чтобы
-  // TODO: цикл не инициализировался.
-
-  // TODO: здесь лучше использовать for in, он вроде лучше с массивами работает
-  for (var i = 0; i < strings.length; i++) {
-    result += strings[i].length;
+  for (var string in strings) { //исправила на for in
+    result += string.length;
   }
 
-  return result;
+  return result; //это же возвращаемое значение? по условию нужно вернуть просто int: [“a”, “ab”, “abc”] => 6
 }
 
 int getResult(int a, int b, Function operation) {
