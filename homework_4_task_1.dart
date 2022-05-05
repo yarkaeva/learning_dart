@@ -15,35 +15,34 @@
 void main() {
   List<String> strings = ['a', 'ab', 'abc'];
 
-  //Решение 1
-  print(toNumbers(strings));
+  print('Решение 1: ${getTotalStringsLengthFirst(strings)}');
 
-  //Решение 2
-
-  var result2 = 0;
-
-  // TODO: интересное решение, но почему оно в main? Или это условие такое?
-  // TODO: Если нет, то вынеси в getResult() оставшуюся логику.
-  for (var string in strings) { //исправила на for in
-    result2 = getResult(result2, string.length, (a, b) => (a = a + b));
-  }
-
-  print('Решение 2: $result2');
+  print('Решение 2: ${getTotalStringsLengthSecond(
+    strings,
+    (a, b) => (a = a + b),
+  )}');
 }
 
-// TODO: где возвращаемое значение? Не забывай.
-int toNumbers(List<String> strings) {
-  if (strings.isEmpty) return 0; // добавила возвращение нуля
+int getTotalStringsLengthFirst(List<String> strings) {
+  if (strings.isEmpty) {
+    return 0;
+  }
 
   var result = 0;
 
-  for (var string in strings) { //исправила на for in
+  for (var string in strings) {
     result += string.length;
   }
 
-  return result; //это же возвращаемое значение? по условию нужно вернуть просто int: [“a”, “ab”, “abc”] => 6
+  return result;
 }
 
-int getResult(int a, int b, Function operation) {
-  return operation(a, b);
+int getTotalStringsLengthSecond(List<String> strings, Function operation) {
+  var result = 0;
+
+  for (var string in strings) {
+    result = operation(result, string.length);
+  }
+
+  return result;
 }
