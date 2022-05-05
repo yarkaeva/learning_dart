@@ -18,33 +18,33 @@
 void main() {
   List<int> numbers = [1, -10, 9, -1];
 
-  // Вариант решения 1 (без использования функции);
-  print(getNumber(numbers));
+  print('Решение 1: ${SumOfPositiveNumbers(numbers)}');
 
-  // TODO: Тут все нормально, но цикл вынеси в getResult(). В main ты должна
-  // TODO: просто вызывать функцию и передавать туда значения (в данном случае ещё и анонимную функцию)
-
-//вариант решения 2 (с использованием анонимной функции);
-
-  var result2 = 0;
-
-  for (var number1 in numbers) {
-    if (number1 > 0) {
-      result2 = getResult(result2, number1, (a, b) => a = a + b);
-    }
-  }
-  print('Решение 2: $result2');
+  print('Решение 2: ${SumOfPositiveNumbersSecond(
+    numbers,
+    (a, b) => (a = a + b),
+  )}');
 }
 
-int getResult(int a, int b, Function operation) {
-  return operation(a, b);
-}
-
-int getNumber(List<int> numbers) {
+int SumOfPositiveNumbers(List<int> numbers) {
   var result = 0;
 
   for (var number in numbers) {
-    if (number > 0) result += number;
+    if (number > 0) {
+      result += number;
+    }
+  }
+
+  return result;
+}
+
+int SumOfPositiveNumbersSecond(List<int> numbers, Function operation) {
+  var result = 0;
+
+  for (var number in numbers) {
+    if (number > 0) {
+      result = operation(result, number);
+    }
   }
 
   return result;
