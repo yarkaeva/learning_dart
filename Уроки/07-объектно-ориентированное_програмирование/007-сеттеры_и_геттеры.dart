@@ -3,8 +3,8 @@ void main() {
   myCar.carName = 'Ford'; // используется "сеттер" по умолчанию
   print(myCar.carName); // используется "геттер" по умолчанию
 
-  myCar.percentage = 23.5;//вызываем собственный "сеттер"
-  print(myCar.percentage);//вызываем собственный "геттер"
+  myCar.percentage = 23.5; //вызываем собственный "сеттер"
+  print(myCar.percentage); //вызываем собственный "геттер"
 }
 
 class Car {
@@ -18,4 +18,8 @@ class Car {
   double get percentage {
     return _percentWay;
   }
+
+  // TODO: для таких выражений, как выше, можно использовать лямбду:
+  // double get percentage => _percentWay;
+  // Так удобнее читать
 }

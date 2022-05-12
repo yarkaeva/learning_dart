@@ -13,14 +13,19 @@ class Car {
   String carName;
   String color;
   static int wheels = 3;
-  static final int wheels2 = 3; //или const, свойство можно определить как статическую константу
+  // TODO: Статические поля лучше сразу const объявлять, а обычные (если они не меняются, чаще всего так и есть) - final.
+  static final int wheels2 =
+      3; //или const, свойство можно определить как статическую константу
 
   Car(this.carName, this.color) {
+    // TODO: что за t? Лучше сразу нормальные имена использовать)
     var t = time(500, 80);
     print('Time: $t');
   }
 
-  static double time(int dist, double speed) =>dist / speed; //как правило статические методы выполняют такие вычисления, которые не затрагивают состояние или поведение объекта
+  static double time(int dist, double speed) =>
+      dist /
+      speed; //как правило статические методы выполняют такие вычисления, которые не затрагивают состояние или поведение объекта
 
   static void setWheels(int value) {
     // в статических методах мы не можем использовать нестатические методы и свойства классов
