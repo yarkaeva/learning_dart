@@ -17,10 +17,8 @@ void main() {
   print(car3.wheels);
 }
 
-// TODO: по стайлгайду (https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#constructors-come-first-in-a-class),
-// TODO: который пишут сами авторы языка конструкторы идут до полей. Поправь и привыкай к этому.
-// TODO: Вроде мелочь, но лучше сразу придерживаться официальных рекомендаций.
-// TODO: Код скомпилится и так, но лучше сразу учиться делать правильно)
+// по стайлгайду (https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#constructors-come-first-in-a-class),
+// который пишут сами авторы языка конструкторы идут до полей.
 class Car {
   Car(this.carName, this.percentWay);
 
@@ -34,12 +32,12 @@ class Car {
 }
 
 class CarSecondWay {
+  CarSecondWay(this.carName, this.percentWay,
+      this.wheels); //через параметр конструктора.
+
   String carName;
   double percentWay;
   final int wheels;
-
-  CarSecondWay(this.carName, this.percentWay,
-      this.wheels); //через параметр конструктора.
 
   void move() {
     print('The $carName has started. Percent way: $percentWay');
@@ -47,15 +45,15 @@ class CarSecondWay {
 }
 
 class CarThirdWay {
-  late String carName;
-  late int percentWay;
-  final int wheels;
-
   CarThirdWay(carName, percentWay, wheel) : wheels = wheel + 2 {
     //с помощью инициализатора.
     this.carName = carName;
     this.percentWay = percentWay;
   }
+
+  late String carName;
+  late int percentWay;
+  final int wheels;
 
   void move() {
     print('The $carName has started. Percent way: $percentWay');

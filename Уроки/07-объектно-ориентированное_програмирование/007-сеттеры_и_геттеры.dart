@@ -15,11 +15,6 @@ class Car {
     _percentWay = (per > 100 || per < 0) ? _percentWay = 0 : _percentWay = per;
   }
 
-  double get percentage {
-    return _percentWay;
+  double get percentage => _percentWay;
   }
 
-  // TODO: для таких выражений, как выше, можно использовать лямбду:
-  // double get percentage => _percentWay;
-  // Так удобнее читать
-}
