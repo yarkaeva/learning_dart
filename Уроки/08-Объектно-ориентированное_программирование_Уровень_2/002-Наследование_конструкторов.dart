@@ -9,12 +9,12 @@ void main() {
 
 class Vehicle {
   //super class or parent class
-  late String color;
-
   Vehicle.fromColor(var color) {
     this.color = color;
     print('Call Vehicle.fromColor: $color Constructor');
   }
+
+  late String color;
 
   void start() {
     print('Has started');
@@ -23,14 +23,14 @@ class Vehicle {
 
 class Car extends Vehicle {
   //sub class or child class
-  late String carName;
 
   // Это единственное место, где можно вызывать конструктор суперкласса.
-  Car(String carName, String color) : super.fromColor(color) { // дарт исполняет блок инициализации до создания экземпляра класса.
-
+  Car(String carName, String color) : super.fromColor(color) {
+    // дарт исполняет блок инициализации до создания экземпляра класса.
     this.carName = carName;
     print('Call of Car.Name:$carName, Color: $color');
   }
+  late String carName;
 
   void open() {
     print('Open door');
