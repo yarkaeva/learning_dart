@@ -12,9 +12,9 @@ void main() {
 }
 
 class Car {
-  String name;
-
   Car(this.name);
+
+  String name;
 
   void move() {
     print('The $name has started');
@@ -31,10 +31,10 @@ class Train {
 
 // реализация интерфейсов классов Car и Train, что означает: класс Vehicle должен реализовать все поля и методы, которые определены в этих классах
 class Vehicle implements Car, Train {
+  Vehicle(this.name, this.speed);
+
   String name; //реализация свойства name из Car
   int speed; //реализация свойства speed из Train
-
-  Vehicle(this.name, this.speed);
 
   void move() {
     print('The $name has started');
