@@ -18,7 +18,7 @@
 // Cube Surface Area = 24
 
 void main() {
-  Cuboid cuboid = Cuboid(1, 2, 3);
+  Cuboid cuboid = Cuboid(length: 1, width: 2, height: 3);
   print('Cuboid Volume: ${cuboid.Volume}');
   print('Cuboid Surface Area: ${cuboid.SurfaceArea}');
 
@@ -28,36 +28,24 @@ void main() {
 }
 
 class Cuboid {
-  // TODO: зачем здесь late у всех полей? Если поля инициализируеются в конструкторе,
-  // TODO: то late не нужен. Так как все поля неизменяемые (немутабельные),
-  // TODO: то ставь везде final и делай конструкторы константными (повышает производительность)
-  late int length;
-  late int width;
-  late int height;
+  const Cuboid(
+      {required this.length, required this.width, required this.height});
 
-  // TODO: я уже писал про то, что по стайлгайду конструктор идет первым.
-
-  // TODO: хороший тон - использовать именованные параметры конструктора, если параметров больше одного
-  Cuboid(this.length, this.width, this.height);
-
-  Cuboid.fromLength(var length) {
-    this.length = length;
-  }
+  final int length;
+  final int width;
+  final int height;
 
   int get SurfaceArea {
-    var surfaceArea = 2 * (length * width + width * height + height * length);
+    int surfaceArea = 2 * (length * width + width * height + height * length);
     return surfaceArea;
   }
 
   int get Volume {
-    var volume = length * width * height;
+    int volume = length * width * height;
     return volume;
   }
 }
 
 class Cube extends Cuboid {
-  Cube(int length) : super.fromLength(length) {
-    this.width = length;
-    this.height = length;
-  }
+  Cube(int length) : super(length: length, width: length, height: length);
 }
