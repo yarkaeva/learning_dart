@@ -29,23 +29,38 @@ void main() {
 
 class Cuboid {
   const Cuboid(
-      {required this.length, required this.width, required this.height});
+      // TODO: когда идет такой список, то в конце добавляй запятую для форматирования
+      {required this.length,
+      required this.width,
+      required this.height});
 
   final int length;
   final int width;
   final int height;
 
-  int get SurfaceArea {
-    int surfaceArea = 2 * (length * width + width * height + height * length);
-    return surfaceArea;
-  }
+  // TODO: Такие выражения можно заменить лямбдой (лучше читается). Этот метод переделаю, нижний сама)
+  // TODO: имена функций пишутся с маленькой буквы!
+  int get SurfaceArea =>
+      2 * (length * width + width * height + height * length);
 
+  // TODO: Такие выражения можно заменить лямбдой (лучше читается).
+  // TODO: имена функций пишутся с маленькой буквы!
   int get Volume {
     int volume = length * width * height;
+    // TODO: имена функций пишутся с маленькой буквы!
     return volume;
   }
 }
 
 class Cube extends Cuboid {
+  // TODO: при возможности делай конструкторы const
+  // TODO: когда идет такой список, то в конце добавляй запятую для форматирования
   Cube(int length) : super(length: length, width: length, height: length);
 }
+
+/* 
+Материалы для изучения:
+1) Лямбда-нотация: https://itchef.ru/articles/162139/
+2) Форматирование с помощью запятых: https://docs.flutter.dev/development/tools/formatting#using-trailing-commas
+3) Правила именования: https://medium.com/@farhanaslam910/naming-convention-in-dart-programming-language-flutter-95feda7a8f4b
+*/
