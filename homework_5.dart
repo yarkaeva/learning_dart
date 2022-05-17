@@ -18,44 +18,43 @@
 // Cube Surface Area = 24
 
 void main() {
-  Cuboid cuboid = Cuboid(length: 1, width: 2, height: 3);
-  print('Cuboid Volume: ${cuboid.Volume}');
-  print('Cuboid Surface Area: ${cuboid.SurfaceArea}');
+  Cuboid cuboid = Cuboid(
+    length: 1,
+    width: 2,
+    height: 3,
+  );
+  print('Cuboid Volume: ${cuboid.volume}');
+  print('Cuboid Surface Area: ${cuboid.surfaceArea}');
 
   Cube cube = Cube(2);
-  print('Cube Volume: ${cube.Volume}');
-  print('Cube Surface Area: ${cube.SurfaceArea}');
+  print('Cube Volume: ${cube.volume}');
+  print('Cube Surface Area: ${cube.surfaceArea}');
 }
 
 class Cuboid {
-  const Cuboid(
-      // TODO: когда идет такой список, то в конце добавляй запятую для форматирования
-      {required this.length,
-      required this.width,
-      required this.height});
+  const Cuboid({
+    required this.length,
+    required this.width,
+    required this.height,
+  });
 
   final int length;
   final int width;
   final int height;
 
-  // TODO: Такие выражения можно заменить лямбдой (лучше читается). Этот метод переделаю, нижний сама)
-  // TODO: имена функций пишутся с маленькой буквы!
-  int get SurfaceArea =>
+  int get surfaceArea =>
       2 * (length * width + width * height + height * length);
 
-  // TODO: Такие выражения можно заменить лямбдой (лучше читается).
-  // TODO: имена функций пишутся с маленькой буквы!
-  int get Volume {
-    int volume = length * width * height;
-    // TODO: имена функций пишутся с маленькой буквы!
-    return volume;
-  }
+  int get volume => length * width * height;
 }
 
 class Cube extends Cuboid {
-  // TODO: при возможности делай конструкторы const
-  // TODO: когда идет такой список, то в конце добавляй запятую для форматирования
-  Cube(int length) : super(length: length, width: length, height: length);
+  const Cube(int length)
+      : super(
+          length: length,
+          width: length,
+          height: length,
+        );
 }
 
 /* 
