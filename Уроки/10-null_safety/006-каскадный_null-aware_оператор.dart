@@ -1,6 +1,6 @@
 //Sound Null Safety
 
-//..? -  cascade null-aware operator
+//?.. -  cascade null-aware operator
 
 void main() {
   Path path = Path();
@@ -10,7 +10,7 @@ void main() {
     ..moveTo(0, 0)
     ..lineTo(0, 2)
     ..lineTo(2, 2);
-  // можно обрабатыват null значения
+  // cascade null-aware operator, можно обрабатывать null значения
   path2
     ?..moveTo(0, 0)
     ..lineTo(0, 2)
